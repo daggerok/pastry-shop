@@ -1,0 +1,39 @@
+{
+  "name": "pastry-shop",
+  "version": "1.0.0",
+  "description": "Pastry shop using ReactJS",
+  "scripts": {
+    "clean": "rimraf -rf dist",
+    "prebuild": "npm run clean",
+    "dev": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html --no-cache",
+    "github-pages": "npm run build -- --public-url=/pastry-shop/",
+    "start": "pm2 start 'npm run dev' --name app",
+    "stop": "pm2 kill",
+    "logs": "pm2 logs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daggerok/pastry-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daggerok/pastry-shop/issues"
+  },
+  "homepage": "https://github.com/daggerok/pastry-shop#readme",
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.7.0",
+    "parcel": "2.7.0",
+    "pm2": "5.2.2",
+    "process": "0.11.10",
+    "rimraf": "3.0.2",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6"
+  }
+}

@@ -1,0 +1,54 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: Type m to triggre manual jobs
+        required: false
+        default: ''
+env:
+  NODE_VERSION: 18.4.0
+jobs:
+  v2-npm-check-updates:
+    if: startsWith(github.event.inputs.trigger, 'm')
+      || startsWith(github.event.inputs.trigger, 'M')
+    name: npm-check-updates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.m2
+            ~/.npm
+            ~/.docker
+            ~/.gradle
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
+      - run: cd $GITHUB_WORKSPACE && npm_config_yes=true npx npm-check-updates
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: sudo apt-get install -y curl httpie
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.m2
+            ~/.npm
+            ~/.docker
+            ~/.gradle
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
+      - run: npm i -E
+      - run: npm run build
+      - run: npm start
+      - run: npm run logs &
+      - run: npm_config_yes=true npx wait-port 1234
+      - run: curl 127.0.0.1:1234
+      - run: npm stop
