@@ -1,4 +1,7 @@
+import { Header } from "./App/Header";
+import { Nav } from "./App/Nav";
 import { Products } from "./App/Products";
+import { Footer } from "./App/Footer";
 
 const products = [
   {
@@ -16,5 +19,10 @@ const products = [
 ];
 
 export function App() {
-  return <Products products={products} />;
+  return <>
+    <Header />
+    <Nav />
+    <Products products={products} />
+    <Footer />
+  </>;
 }
