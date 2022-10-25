@@ -9,6 +9,7 @@ code pastry-shop
 cd pastry-shop
 npm i -E
 npm run dev
+open http://127.0.0.1:1234
 ```
 
 ## Useful links
