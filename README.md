@@ -50,3 +50,6 @@ open http://127.0.0.1:1234
 * https://www.youtube.com/c/Freecodecamp
 * https://www.youtube.com/watch?v=bMknfKXIFA8&ab_channel=freeCodeCamp.org
 * https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis
+* https://create-react-app.dev/docs/adding-images-fonts-and-files/
+* https://reactjs.org/docs/hooks-state.html
+* https://css-tricks.com/how-to-use-css-grid-for-sticky-headers-and-footers/
