@@ -8,8 +8,8 @@ export function Search() {
   //   setSearchCriteria(event.target.value);
   // }
 
-  return <div>
+  return <>
     <input onChange={onChange} />
     <p>Result: {searchCriteria}</p>
-  </div>;
+  </>;
 }
