@@ -53,3 +53,5 @@ open http://127.0.0.1:1234
 * https://create-react-app.dev/docs/adding-images-fonts-and-files/
 * https://reactjs.org/docs/hooks-state.html
 * https://css-tricks.com/how-to-use-css-grid-for-sticky-headers-and-footers/
+* https://rsuitejs.com/guide/official-themes/
+* https://rsuitejs.com/components/navbar/

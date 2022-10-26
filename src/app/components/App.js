@@ -1,5 +1,5 @@
 import { Header } from "./App/Header";
-import { Nav } from "./App/Nav";
+import { MyNav } from "./App/MyNav";
 import { Products } from "./App/Products";
 import { Footer } from "./App/Footer";
 
@@ -21,7 +21,7 @@ const products = [
 export function App() {
   return <>
     <Header />
-    <Nav />
+    <MyNav />
     <Products products={products} />
     <Footer />
   </>;
