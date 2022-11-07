@@ -55,3 +55,5 @@ open http://127.0.0.1:1234
 * https://css-tricks.com/how-to-use-css-grid-for-sticky-headers-and-footers/
 * https://rsuitejs.com/guide/official-themes/
 * https://rsuitejs.com/components/navbar/
+* https://www.freecodecamp.org/news/how-to-manage-state-in-a-react-app
+* https://jotai.org/
