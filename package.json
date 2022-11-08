@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "rimraf -rf dist",
     "prebuild": "npm run clean",
+    "predev": "npm run clean",
     "dev": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html --no-cache",
     "github-pages": "npm run build -- --public-url=/pastry-shop/",

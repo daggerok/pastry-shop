@@ -10,10 +10,12 @@ let result = todos.map(todo => <li>{todo.task}</li>);
 <li>Drink wine</li>
 */
 
+import { Task } from "./ListItems/Task";
+
 export const ListItems = ({ todos }) => <>
     {
         todos.map(
-            todo => <li>{todo.task}</li>
+            todo => <Task description={todo.task} key={todo.id} />
         )
     }
 </>;
