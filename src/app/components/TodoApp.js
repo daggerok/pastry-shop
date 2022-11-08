@@ -1,6 +1,6 @@
 const products = [];
 
-export function App() {
+export function TodoApp() {
   return <>
 
   </>;
