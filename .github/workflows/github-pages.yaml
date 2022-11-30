@@ -9,7 +9,7 @@ on:
     branches: [ '*' ]
     pull_request: [ '*' ]
 env:
-  NODE_VERSION: 18.4.0
+  NODE_VERSION: 19.0.1
 jobs:
   deploy:
     runs-on: ubuntu-22.04
@@ -21,17 +21,12 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/cache@v3
-        id: ci
-        with:
-          path: |
-            ~/.npm
-            ~/.node
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json', '**/package-lock.json') }}
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm install -E
+      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+      - run: npm install || cat /home/runner/.npm/_logs/*.log
+      - run: npm ci
       - run: npm run github-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
