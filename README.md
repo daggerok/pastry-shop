@@ -38,7 +38,7 @@ Pastry shop using ReactJS
 git clone https://github.com/daggerok/pastry-shop.git
 code pastry-shop
 cd pastry-shop
-npm i -E --no-optional
+npm i -E --omit=optional
 npm run dev
 open http://127.0.0.1:1234
 ```

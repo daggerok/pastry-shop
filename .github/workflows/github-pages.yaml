@@ -32,7 +32,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm i -ED @parcel/css-linux-x64-gnu
-      - run: npm install -E --no-optional
+      - run: npm install -E --omit=optional
       - run: npm run github-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
