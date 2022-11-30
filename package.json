@@ -16,7 +16,12 @@
     "type": "git",
     "url": "git+https://github.com/daggerok/pastry-shop.git"
   },
-  "keywords": [],
+  "keywords": [
+    "parcel",
+    "rsuite",
+    "react",
+    "sass"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -32,7 +37,7 @@
     "@parcel/transformer-sass": "2.8.0",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "parcel": "^2.8.0",
+    "parcel": "2.8.0",
     "pm2": "5.2.2",
     "process": "0.11.10",
     "rimraf": "3.0.2"
