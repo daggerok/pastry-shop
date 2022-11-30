@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
-      - run: npm ci
       - run: npm i || cat /home/runner/.npm/_logs/*.log
+      - run: npm ci
       - run: npm run build
       - run: npm start
       - run: npm run logs &
