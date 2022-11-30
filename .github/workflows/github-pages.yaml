@@ -21,18 +21,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/cache@v3
-        id: ci
-        with:
-          path: |
-            ~/.npm
-            ~/.node
-          key: ${{ runner.os }}-${{ hashFiles('**/package.json', '**/package-lock.json') }}
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm install
+      - run: cat /home/runner/.npm/_logs/*.log
       - run: npm run github-pages
+      - run: cat /home/runner/.npm/_logs/*.log
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

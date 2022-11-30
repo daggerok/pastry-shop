@@ -19,16 +19,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.m2
-            ~/.npm
-            ~/.docker
-            ~/.gradle
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
       - run: npm i
+      - run: cat /home/runner/.npm/_logs/*.log
       - run: npm run build
+      - run: cat /home/runner/.npm/_logs/*.log
       - run: npm start
       - run: npm run logs &
       - run: npm_config_yes=true npx wait-port 1234
@@ -48,6 +42,7 @@ jobs:
 #          path: |
 #            ~/.m2
 #            ~/.npm
+#            ~/.node
 #            ~/.docker
 #            ~/.gradle
 #          key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
