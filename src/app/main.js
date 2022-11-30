@@ -7,15 +7,3 @@ div.onclick = function onDivClick(event) {
   const element = event.target;
   element.classList.toggle('red');
 }
-const button = document.querySelector('button');
-button.addEventListener('click', function onBuy(evt) {
-  const button = evt.target;
-  // get parent of button:
-  const parent = button.parentElement;
-  console.log('parentElement', parent);
-  const products = document.querySelector('#products');
-  console.log('products', parent);
-  // remove it (simulate buy operation)
-  // sent REST API call to backend server to make an order
-  products.removeChild(parent);
-}, false);
