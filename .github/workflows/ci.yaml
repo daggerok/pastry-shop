@@ -19,10 +19,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm i
-      - run: cat /home/runner/.npm/_logs/*.log
+      - run: npm i || cat /home/runner/.npm/_logs/*.log
       - run: npm run build
-      - run: cat /home/runner/.npm/_logs/*.log
       - run: npm start
       - run: npm run logs &
       - run: npm_config_yes=true npx wait-port 1234
