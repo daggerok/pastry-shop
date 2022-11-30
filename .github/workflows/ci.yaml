@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: sudo apt-get install -y curl httpie
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@latest
         with:
           node-version: ${{ env.NODE_VERSION }}
       - uses: actions/cache@v3
