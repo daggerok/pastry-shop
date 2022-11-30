@@ -31,8 +31,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - run: npm i -ED @parcel/css-linux-x64-gnu
-      - run: npm install -E --omit=optional
+      - run: npm install -E
       - run: npm run github-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

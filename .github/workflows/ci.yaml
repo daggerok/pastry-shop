@@ -45,8 +45,7 @@ jobs:
             ~/.docker
             ~/.gradle
           key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
-      - run: npm i -ED @parcel/css-linux-x64-gnu
-      - run: npm i -E --omit=optional
+      - run: npm i -E
       - run: npm run build
       - run: npm start
       - run: npm run logs &
