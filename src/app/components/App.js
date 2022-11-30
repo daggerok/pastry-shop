@@ -20,9 +20,15 @@ const products = [
 
 export function App() {
   return <>
-    <Header />
-    <MyNav />
-    <Products products={products} />
-    <Footer />
+    Hello!
   </>;
 }
+//
+// export function App() {
+//   return <>
+//     <Header />
+//     <MyNav />
+//     <Products products={products} />
+//     <Footer />
+//   </>;
+// }
