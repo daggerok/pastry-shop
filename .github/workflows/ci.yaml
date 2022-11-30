@@ -27,7 +27,7 @@ jobs:
             ~/.docker
             ~/.gradle
           key: ${{ runner.os }}-build-${{ hashFiles('**/package.json', '**/pom.xml') }}
-      - run: npm i -E
+      - run: npm i
       - run: npm run build
       - run: npm start
       - run: npm run logs &
