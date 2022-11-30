@@ -4,7 +4,9 @@
   "description": "Pastry shop using ReactJS",
   "scripts": {
     "clean": "rimraf -rf dist",
+    "predev": "npm run clean",
     "prebuild": "npm run clean",
+    "pregithub-pages": "npm run clean",
     "dev": "parcel serve ./src/index.html",
     "build": "parcel build ./src/index.html --no-cache",
     "github-pages": "npm run build -- --public-url=/pastry-shop/",
