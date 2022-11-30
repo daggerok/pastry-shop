@@ -24,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+      - run: npm ci
       - run: npm install || cat /home/runner/.npm/_logs/*.log
       - run: npm run github-pages
       - name: Deploy

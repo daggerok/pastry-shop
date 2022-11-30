@@ -39,7 +39,7 @@
     "@parcel/transformer-sass": "2.8.0",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
-    "lightningcss": "1.17.0",
+    "lightningcss": "1.17.1",
     "parcel": "2.8.0",
     "pm2": "5.2.2",
     "process": "0.11.10",
