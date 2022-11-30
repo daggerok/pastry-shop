@@ -1,2 +1,0 @@
-const e=document.querySelector("#app"),t=document.createElement("h1");t.textContent="Hello World!",e.append(t),e.onclick=function(e){e.target.classList.toggle("red")};document.querySelector("button").addEventListener("click",(function(e){const t=e.target.parentElement;console.log("parentElement",t);const o=document.querySelector("#products");console.log("products",t),o.removeChild(t)}),!1);
-//# sourceMappingURL=index.e4a3bb10.js.map
