@@ -32,9 +32,9 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v3
       - run: sudo apt-get install -y curl httpie
-      - uses: actions/setup-node@latest
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - uses: actions/cache@v3
