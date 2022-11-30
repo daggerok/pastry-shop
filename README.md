@@ -45,6 +45,7 @@ open http://127.0.0.1:1234
 
 ## Useful links
 
+* [DOM API](https://developer.mozilla.org/ru/docs/Web/API/Document_Object_Model)
 * https://parceljs.org/
 * https://parceljs.org/recipes/react/
 * https://www.youtube.com/c/Freecodecamp
