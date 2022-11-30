@@ -8,7 +8,7 @@ on:
         required: false
         default: ''
 env:
-  NODE_VERSION: 18.4.0
+  NODE_VERSION: 19.0.1
 jobs:
   v2-npm-check-updates:
     if: startsWith(github.event.inputs.trigger, 'm')
