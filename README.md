@@ -13,6 +13,7 @@ npm run dev
 
 ## Useful links
 
+*[DOM API] (https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
 * https://parceljs.org/
 * https://parceljs.org/recipes/react/
 * https://www.youtube.com/c/Freecodecamp
