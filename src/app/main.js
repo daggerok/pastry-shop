@@ -29,33 +29,55 @@ const div = document.querySelector("#app");
 // </div>
 // `);
 
-const createElementWithTextContent = ({ tag, classList, textContent }) => {
+const createElementWithTextContent = ({ tag, classList, onClick, textContent }) => {
   if (!tag) throw Error('tag is required');
   const element = document.createElement(tag);
   if (classList && classList.length) element.classList = classList;
+  if (onClick && onClick.length && onClick.length > 0 && onClick.length <= 2) {
+    const handler = event => onClick.length === 2 ? onClick(element, event) : onClick(element);
+    element.addEventListener('click', handler, false);
+  }
   if (textContent) element.textContent = textContent;
   return element;
 };
 
-const createElementWithChildren = ({tag, classList, elements}) => {
+const createElementWithChildren = ({tag, classList, onClick, elements}) => {
   if (!tag) throw Error('tag is required');
   const element = document.createElement(tag);
   console.log('classList && classList.length:', classList && classList.length, classList);
   if (classList && classList.length) element.classList = classList;
+  if (onClick && onClick.length && onClick.length > 0 && onClick.length <= 2) {
+    const handler = event => onClick.length === 2 ? onClick(element, event) : onClick(element);
+    element.addEventListener('click', handler, false);
+  }
   if (elements && elements.length) {
-    // elements.forEach(element.append);
-    // elements.forEach(el => element.append(el));
-    for (let i = 0; i < elements.length ; i++) {
-      element.append(elements[i]);
-    }
+    elements.forEach(el => element.append(el));
+    // for (let i = 0; i < elements.length ; i++) element.append(elements[i]);
   }
   return element;
 };
 
+const toggleClass = (element) => {
+  element.classList.toggle('list-item');
+}
+
+const reverseTextContent = (element) => {
+  if (!element.textContent && !element.textContent.length) return;
+  const string = element.textContent;
+  console.log('string', string);
+  const list = string.split('');
+  console.log('list', list);
+  const reversedList = list.reverse();
+  console.log('reversedList', reversedList);
+  const reversedString = reversedList.join('');
+  console.log('reversedString', reversedString);
+  element.textContent = reversedString;
+}
+
 const element = createElementWithChildren({tag: 'ul', classList: ['list'], elements: [
   createElementWithChildren({tag: 'li', classList: ['list-item'], elements: [
     createElementWithTextContent({tag: 'h2', textContent: '1.'}),
-    createElementWithTextContent({tag: 'p', textContent: 'some 1st text...'}),
+    createElementWithTextContent({tag: 'p', textContent: 'some 1st text...', onClick: reverseTextContent}),
     createElementWithChildren({tag: 'section', elements: [
       createElementWithTextContent({tag: 'span', textContent: 'section 1'}),
     ]})
@@ -67,7 +89,7 @@ const element = createElementWithChildren({tag: 'ul', classList: ['list'], eleme
       createElementWithTextContent({tag: 'span', textContent: 'section 2'}),
     ]}),
   ]}),
-  createElementWithChildren({tag: 'li', classList: ['list-item'], elements: [
+  createElementWithChildren({tag: 'li', classList: ['list-item'], onClick: toggleClass, elements: [
     createElementWithTextContent({tag: 'h2', textContent: '3.'}),
     createElementWithTextContent({tag: 'p', textContent: 'some 3rd text...'}),
     createElementWithChildren({tag: 'section', elements: [
