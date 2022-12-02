@@ -29,14 +29,19 @@ const div = document.querySelector("#app");
 // </div>
 // `);
 
-const createElementWithTextContent = (tag, textContent) => {
+const createElementWithTextContent = ({ tag, classList, textContent }) => {
+  if (!tag) throw Error('tag is required');
   const element = document.createElement(tag);
-  element.textContent = textContent;
+  if (classList && classList.length) element.classList = classList;
+  if (textContent) element.textContent = textContent;
   return element;
 };
 
-const createElementWithChildren = (tag, elements) => {
+const createElementWithChildren = ({tag, classList, elements}) => {
+  if (!tag) throw Error('tag is required');
   const element = document.createElement(tag);
+  console.log('classList && classList.length:', classList && classList.length, classList);
+  if (classList && classList.length) element.classList = classList;
   if (elements && elements.length) {
     // elements.forEach(element.append);
     // elements.forEach(el => element.append(el));
@@ -47,29 +52,29 @@ const createElementWithChildren = (tag, elements) => {
   return element;
 };
 
-const element = createElementWithChildren('ul', [
-  createElementWithChildren('li', [
-    createElementWithTextContent('h2', '1.'),
-    createElementWithTextContent('p', 'some 1st text...'),
-    createElementWithChildren('section', [
-      createElementWithTextContent('span', 'section 1'),
-    ])
-  ]),
-  createElementWithChildren('li', [
-    createElementWithTextContent('h2', '2.'),
-    createElementWithTextContent('p', 'some 2nd text...'),
-    createElementWithChildren('section', [
-      createElementWithTextContent('span', 'section 2'),
-    ]),
-  ]),
-  createElementWithChildren('li', [
-    createElementWithTextContent('h2', '3.'),
-    createElementWithTextContent('p', 'some 3rd text...'),
-    createElementWithChildren('section', [
-      createElementWithTextContent('span', 'section 3'),
-    ]),
-  ]),
-]);
+const element = createElementWithChildren({tag: 'ul', classList: ['list'], elements: [
+  createElementWithChildren({tag: 'li', classList: ['list-item'], elements: [
+    createElementWithTextContent({tag: 'h2', textContent: '1.'}),
+    createElementWithTextContent({tag: 'p', textContent: 'some 1st text...'}),
+    createElementWithChildren({tag: 'section', elements: [
+      createElementWithTextContent({tag: 'span', textContent: 'section 1'}),
+    ]})
+  ]}),
+  createElementWithChildren({tag: 'li', classList: ['list-item'], elements: [
+    createElementWithTextContent({tag: 'h2', textContent: '2.'}),
+    createElementWithTextContent({tag: 'p', textContent: 'some 2nd text...'}),
+    createElementWithChildren({tag: 'section', elements: [
+      createElementWithTextContent({tag: 'span', textContent: 'section 2'}),
+    ]}),
+  ]}),
+  createElementWithChildren({tag: 'li', classList: ['list-item'], elements: [
+    createElementWithTextContent({tag: 'h2', textContent: '3.'}),
+    createElementWithTextContent({tag: 'p', textContent: 'some 3rd text...'}),
+    createElementWithChildren({tag: 'section', elements: [
+      createElementWithTextContent({tag: 'span', textContent: 'section 3'}),
+    ]}),
+  ]}),
+]});
 
-console.log(element);
+console.log(element.innerHTML);
 div.append(element);
